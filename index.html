@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PrintHub | Student printing near Cebu Eastern College</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=IBM+Plex+Mono:wght@400;600&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://pyscript.net/releases/2025.8.1/core.css">
+<script type="module" src="https://pyscript.net/releases/2025.8.1/core.js"></script>
+<style>
+  /* Fix header layout: logo and brand side-by-side */
+  .bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    padding: 1.1rem clamp(1rem, 5vw, 4rem);
+  }
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between logo and name */
+  }
+  .brand-logo {
+    background-color: #007bff;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .brand {
+    font-size: 1.7rem;
+    font-weight: 900;
+    text-decoration: none;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .brand span {
+    color: var(--hot);
+  }
+  nav {
+    display: flex;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: var(--mut);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  nav a:hover {
+    color: var(--ink);
+  }
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="brand-group">
+    <img class="brand-logo" src="PrintHUB Logo Concept Grid (Edited).png" alt="PrintHub Logo">
+    <a href="#top" class="brand">Print<span>Hub</span></a>
+  </div>
+  <nav><a href="#build">Build a job</a><a href="#services">Services</a><a href="#why">Why PrintHub</a><a href="#team">Team</a></nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <h1>Send it before you walk in.</h1>
+  <p class="lead">PrintHub is a student printing shop for Cebu Eastern College. Affordable pages, clear quality, and your file ready when you arrive.</p>
+</section>
+
+<section id="build" class="build">
+  <form id="job-form" autocomplete="off">
+    <h2>Build your print job</h2>
+    <p class="hint">Enter your page counts. The receipt on the right updates as you type.</p>
+    <label>Your name <input id="j-name" class="job-in" required></label>
+    <label>File name <input id="j-file" class="job-in" placeholder="thesis-draft.pdf"></label>
+    <div class="trio">
+      <label>B&amp;W pages <input id="q-bw" class="job-in" type="number" min="0" value="20"></label>
+      <label>Colored pages <input id="q-color" class="job-in" type="number" min="0" value="0"></label>
+      <label>Photocopies <input id="q-copy" class="job-in" type="number" min="0" value="0"></label>
+    </div>
+    <fieldset><legend>Add finishing (priced at the counter)</legend>
+      <label class="chk"><input type="checkbox" class="job-in" value="Scanning"> Scanning</label>
+      <label class="chk"><input type="checkbox" class="job-in" value="Lamination"> Lamination</label>
+      <label class="chk"><input type="checkbox" class="job-in" value="Binding"> Document binding</label>
+    </fieldset>
+    <p id="j-msg" class="msg" role="status"></p>
+    <button type="submit">Send job to PrintHub</button>
+  </form>
+
+  <aside class="receipt" aria-live="polite">
+    <div class="rhead">PRINTHUB<br><small>Student Printing</small></div>
+    <div id="r-lines"></div>
+    <div class="rtotal"><span>TOTAL</span><span id="r-total">₱0.00</span></div>
+    <div id="r-note" class="rnote"></div>
+  </aside>
+</section>
+
+<section class="wrapx">
+  <h2>Claim tickets</h2>
+  <p class="sub">Each job you send gets a ticket. Show it at the counter to pick up your pages.</p>
+  <div id="tickets" class="tickets"><p class="empty">No tickets yet. Send a job above.</p></div>
+</section>
+
+<section id="services" class="wrapx">
+  <h2>What we print and finish</h2>
+  <div class="tabs" role="tablist">
+    <button class="tab on" data-f="all">All</button><button class="tab" data-f="print">Printing</button><button class="tab" data-f="finish">Finishing</button>
+  </div>
+  <div id="svc" class="svc"></div>
+</section>
+
+<section id="why" class="wrapx">
+  <h2>Why students pick PrintHub</h2>
+  <p class="sub">Other shops in Cebu City are good, but they serve everyone. Choose one to see where PrintHub fits.</p>
+  <div class="tabs" id="comp-tabs"></div>
+  <div id="comp" class="comp"></div>
+  <div class="grid2">
+    <div><h3>Problems we solve</h3><ul><li>Expensive printing on a student budget</li><li>Long waiting when shops are crowded</li><li>Unclear or low-quality prints</li><li>Shops with no color printing or photocopying</li></ul></div>
+    <div><h3>Our promise</h3><p class="promise">“Affordable and convenient printing made especially for students and their school requirements.”</p></div>
+  </div>
+</section>
+
+<section id="team" class="wrapx">
+  <h2>The team</h2>
+  <p class="sub">BSIT 3 Section 4, College of Information Technology, Cebu Eastern College. </p>
+  <ul class="names"><li>Jason Scott Libusada</li><li>Daryl Alga</li><li>Icy Jake Dela Cruz</li><li>Jay Kyle Dela Cruz</li><li>John Francis Suerte</li></ul>
+</section>
+</main>
+<footer>PrintHub · Event-Driven Programming final project · Built with PyScript</footer>
+<script type="py" src="./main.py" config="./pyscript.toml"></script>
+</body>
+</html>
