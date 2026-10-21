@@ -136,7 +136,7 @@ def filter_services(event):
     draw_services(event.target.dataset.f)
 
 
-# ---------- Competitor comparison (click events) ----------
+# ---------- Competitor Comparison ----------
 def show_comp(name):
     place, strong, gap = COMPETITORS[name]
     document.querySelector("#comp").innerHTML = (
