@@ -70,8 +70,8 @@ def draw_receipt(event=None):
     document.querySelector("#r-note").textContent = (
         "Finishing is priced when you arrive." if extra else "Prices: B&W ₱1, color ₱3, copy ₱1 per page.")
 
-
-# ---------- Send job (submit event) ----------
+# ---------- Dela Cruz Icy Jake -----------
+# ---------- Send job send event ----------
 @when("submit", "#job-form")
 def send_job(event):
     event.preventDefault()
@@ -118,7 +118,6 @@ def pick_up(event):
                 t["done"] = True
         render_tickets()
 
-
 # ---------- Service filter (click events) ----------
 def draw_services(kind="all"):
     html = ""
@@ -135,7 +134,7 @@ def filter_services(event):
     event.target.classList.add("on")
     draw_services(event.target.dataset.f)
 
-
+# ---------- Alga Daryl ----------
 # ---------- Competitor Comparison ----------
 def show_comp(name):
     place, strong, gap = COMPETITORS[name]
